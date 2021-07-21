@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import MovieDetails from '../views/MovieDetails.vue'
+import MovieSearch from '../views/MovieSearch.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/movie-details',
+    name: 'MovieDetails',
+    component: MovieDetails
+  },
+  {
+    path: '/movie-search',
+    name: 'MovieSearch',
+    component: MovieSearch
   }
 ]
 
