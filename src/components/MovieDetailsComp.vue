@@ -1,22 +1,20 @@
 <template>
     <v-card>
         <v-card-title>
-            The Matrix
+            {{title}}
         </v-card-title>
         <v-card-text>
             <v-img
-                src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
-                height="300"
-                width="200"
+                :src="image"
+                :lazy-src="lazyImage"
+                :width="width"
+                :height="height"
             ></v-img>
-            <div>
-                Rating: 9/10
-            </div>
-            <div>
-                Genres: Action, Sci-Fi
-            </div>
-            <div>
-                Description: Real cool movie!
+            <div
+                v-for="(detail, index) in details"
+                :key="'detail_' + index"
+            >
+                {{detail.name}}: {{detail.value}}
             </div>
         </v-card-text>
     </v-card>
@@ -25,6 +23,30 @@
 <script>
 export default {
     name: 'MovieDetailsComp',
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        image: {
+            type: String,
+            required: true
+        },
+        lazyImage: {
+            type: String,
+            default: ""
+        },
+        width: {
+            type: Number,
+            default: 200
+        },
+        height: {
+            type: Number,
+            default: 300
+        },
+        details: Array,
+
+    }
 }
 </script>
 
